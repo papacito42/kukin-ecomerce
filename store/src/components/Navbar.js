@@ -10,22 +10,20 @@ function NavbarComponent() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const checkout = async () => {
-        await fetch('https://cbd-rho.vercel.app/checkout', {
-            mode: 'no-cors',
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({items: cart.items})
-        }).then((response) => {
-            return response.json();
-        }).then((response) => {
-            if(response.url) {
-                window.location.assign(response.url); // Forwarding user to Stripe
-            }
-        });
+   const checkout = async () => {
+    const response = await fetch('https://checkout.stripe.com/', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({items: cart.items})
+    });
+    const json = await response.json();
+    if(json.url) {
+        window.location.assign(json.url); // Forwarding user to Stripe
     }
+    return json;
+}
 
     const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 

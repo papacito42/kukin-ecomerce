@@ -11,8 +11,7 @@ function NavbarComponent() {
     const handleShow = () => setShow(true);
 
     const checkout = async () => {
-        await fetch('https://checkout.stripe.com/', {
-            mode: 'no-cors',
+        await fetch('http://localhost:4000/checkout', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -24,7 +23,7 @@ function NavbarComponent() {
             if(response.url) {
                 window.location.assign(response.url); // Forwarding user to Stripe
             }
-        })
+        });
     }
 
     const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);

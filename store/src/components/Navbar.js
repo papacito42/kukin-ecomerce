@@ -10,7 +10,7 @@ function NavbarComponent() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-     const checkout = async () => {
+        const checkout = async () => {
         await fetch('https://cbd-qcxs6lfg0-papacito42.vercel.app/checkout', {
             method: "POST",
             headers: {

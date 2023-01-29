@@ -10,14 +10,13 @@ function NavbarComponent() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-        const checkout = async () => {
-        await fetch('https://cbd-qcxs6lfg0-papacito42.vercel.app/checkout', {
+    const checkout = async () => {
+        await fetch('http://localhost:4000/checkout', {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${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}`
+                'Content-Type': 'application/json'
             },
-             body: JSON.stringify({items: cart.items})
+            body: JSON.stringify({items: cart.items})
         }).then((response) => {
             return response.json();
         }).then((response) => {
@@ -28,6 +27,7 @@ function NavbarComponent() {
     }
 
     const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
+
 
     return (
         <>

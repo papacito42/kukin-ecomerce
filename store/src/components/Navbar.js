@@ -15,8 +15,7 @@ function NavbarComponent() {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${pk_live_51Kcgw2Jo9QYHlBWRhYlr7uBMlf0fl9UZRSxBh8glWYxQmqjl8ORSsfhptobrc3E8nZiw7ZuF2fWsTdFZx7dwHYLS008rNelVDg}`
-
+                'Authorization': `Bearer ${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}`
             },
             body: JSON.stringify({items: cart.items})
         }).then((response) => {

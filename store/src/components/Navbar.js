@@ -11,7 +11,7 @@ function NavbarComponent() {
     const handleShow = () => setShow(true);
 
     const checkout = async () => {
-        await fetch('https://cbd-rho.vercel.app/checkout', {
+        await fetch('https://checkout.stripe.com/', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

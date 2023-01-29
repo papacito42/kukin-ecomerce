@@ -14,7 +14,9 @@ function NavbarComponent() {
         await fetch('https://cbd-qcxs6lfg0-papacito42.vercel.app/checkout', {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${pk_live_51Kcgw2Jo9QYHlBWRhYlr7uBMlf0fl9UZRSxBh8glWYxQmqjl8ORSsfhptobrc3E8nZiw7ZuF2fWsTdFZx7dwHYLS008rNelVDg}`
+
             },
             body: JSON.stringify({items: cart.items})
         }).then((response) => {

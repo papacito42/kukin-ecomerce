@@ -11,21 +11,24 @@ function NavbarComponent() {
     const handleShow = () => setShow(true);
 
     const checkout = async () => {
-        await fetch('https://checkout.stripe.com/', {
-            mode: 'no-cors',
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({items: cart.items})
-        }).then((response) => {
-            return response.json()
-        }).then((response) => {
-            if(response.url) {
-                window.location.assign(response.url); // Forwarding user to Stripe
-            }
-        });
-    }
+    await fetch('https://checkout.stripe.com/', {
+        mode: 'no-cors',
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({items: cart.items})
+    }).then((response) => {
+        console.log(response);
+        return response.json();
+    }).then((response) => {
+        if(response.url) {
+            window.location.assign(response.url); // Forwarding user to Stripe
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+}
 
     const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 

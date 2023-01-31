@@ -49,4 +49,4 @@ app.post("/checkout", async (req, res) => {
       
 });
 
-app.listen(4000, () => console.log("Listening on port 4000!"));
+app.listen(80, "0.0.0.0", () => console.log("Listening on IP 0.0.0.0 and port 80!"));

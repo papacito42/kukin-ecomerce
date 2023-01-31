@@ -11,7 +11,7 @@ function NavbarComponent() {
     const handleShow = () => setShow(true);
 
     const checkout = async () => {
-    await fetch('https://cbdshop.vercel.app/checkout', {
+    await fetch('http://cbdshop.vercel.app:4000/checkout', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

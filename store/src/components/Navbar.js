@@ -12,6 +12,7 @@ function NavbarComponent() {
 
     const checkout = async () => {
     await fetch('https://checkout.stripe.com/', {
+        mode: 'no-cors',
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
